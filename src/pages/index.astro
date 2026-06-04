@@ -1,6 +1,7 @@
 ---
 import CardProyecto from '../components/CardProyecto.astro';
 import '../styles/global.css';
+// CORRECCIÓN: Se eliminó la importación inválida de la carpeta assets que rompía el build
 ---
 
 <html lang="es">
@@ -9,21 +10,19 @@ import '../styles/global.css';
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>FELO_RF | Data Management, DIT & Multicam Live Shows</title>
+        <title>FELO_RF | Data Management & DIT</title>
     </head>
     
-    <!-- Cuerpo de la página con el fondo negro cinematográfico de tus referencias -->
     <body class="bg-[#0c0c0e] text-zinc-100 antialiased selection:bg-amber-500">
         <main>
             
-            <!-- 1. SECCIÓN HERO (Estilo premium de monitor de set) -->
             <section id="hero" class="min-h-screen flex flex-col justify-center items-start px-8 md:px-24 max-w-5xl mx-auto border-b border-zinc-900/60">
-                <span class="text-xs uppercase tracking-[0.3em] text-amber-500/80 font-mono mb-4">Senior DIT & Data Management </span>
+                <span class="text-xs uppercase tracking-[0.3em] text-amber-500/80 font-mono mb-4">Senior DIT & Data Management</span>
                 <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-2 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
                     FELO_RF
                 </h1>
                 <h2 class="text-xl md:text-3xl font-light text-zinc-400 tracking-wide mb-6">
-                    Data Management, DIT & Multicam Live Shows
+                    Data Management & DIT para Cine, Publicidad y Espectáculos en Vivo.
                 </h2>
                 <p class="text-zinc-500 max-w-2xl text-base md:text-lg leading-relaxed mb-8">
                     Aseguramos la calidad de tus flujos de trabajo críticos y la integridad del material en la industria del cine, publicidad y espectáculos masivos multicámara.
@@ -33,14 +32,12 @@ import '../styles/global.css';
                 </a>
             </section>
 
-            <!-- 2. SECCIÓN SERVICIOS (Corregida con minúsculas y diseño mate de tus capturas) -->
             <section id="servicios" class="py-24 px-8 md:px-24 max-w-5xl mx-auto border-b border-zinc-900/60">
                 <h2 class="text-xs uppercase tracking-[0.3em] text-zinc-500 font-mono mb-12">
                     // Servicios Especializados
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Tarjeta 1: DIT -->
                     <article class="bg-zinc-900/20 border border-zinc-800/60 p-8 rounded-sm hover:border-zinc-700 transition-all duration-300">
                         <h3 class="text-zinc-100 font-semibold text-lg md:text-xl mb-3 tracking-wide">
                             Digital Image Technical (DIT)
@@ -50,7 +47,6 @@ import '../styles/global.css';
                         </p>
                     </article>
 
-                    <!-- Tarjeta 2: Data Wrangler -->
                     <article class="bg-zinc-900/20 border border-zinc-800/60 p-8 rounded-sm hover:border-zinc-700 transition-all duration-300">
                         <h3 class="text-zinc-100 font-semibold text-lg md:text-xl mb-3 tracking-wide">
                             Data Wrangler & Management
@@ -60,7 +56,6 @@ import '../styles/global.css';
                         </p>
                     </article>
 
-                    <!-- Tarjeta 3: Multicámara -->
                     <article class="bg-zinc-900/20 border border-zinc-800/60 p-8 rounded-sm hover:border-zinc-700 transition-all duration-300">
                         <h3 class="text-zinc-100 font-semibold text-lg md:text-xl mb-3 tracking-wide">
                             Multicámara Live Shows
@@ -72,46 +67,129 @@ import '../styles/global.css';
                 </div>
             </section>
 
-            <!-- 3. SECCIÓN PORTAFOLIO (Estructura semántica unificada) -->
             <section id="portfolio" class="py-24 px-8 md:px-24 max-w-5xl mx-auto border-b border-zinc-900/60">
                 <h2 class="text-xs uppercase tracking-[0.3em] text-zinc-500 font-mono mb-4">
                     // Trabajos Recientes
                 </h2>
                 <p class="text-zinc-400 font-light mb-12">
-                    Explora nuestros flujos de datos aplicados en proyectos de Cine, Publicidad y Conciertos en Vivo.
+                    Explora nuestros proyectos de Cine, Publicidad, Video Clips y Conciertos en Vivo.
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Tarjeta 1: Cine -->
+    
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="VW-Tiguan"
+                        cliente="The Colors Films"
+                        camaras="Alexa Mini LF / Dron FPV Cinewhoop / Dron DJI Inspire 2 / Sony FX3"
+                        flujo="Ingesta masiva, organizacion Materia multicamra y Gestion LUTs."
+                        imagenPath="/src/assets/tigu.webp" 
+                    />
+
+                    <CardProyecto 
+                        categoria="Multicam Live Shows"
+                        titulo="Marin Garrix & Ed Sheeran Movistar Arena"
+                        cliente="Street Machine"
+                        camaras="15x Sony FX3 / FX6"
+                        flujo="Ingesta masiva, organizacion Materia multicamra y organizacion a diferentes proyectos."
+                        imagenPath="/src/assets/mg1.webp" 
+                    />
+
                     <CardProyecto 
                         categoria="Cine"
                         titulo="Bajo la lluvia"
                         cliente="Endora Films / Distribuidora Global"
                         camaras="RED V-Raptor s35"
                         flujo="Ingesta en set, verificación MD5/XXHash, control de Look (LUTs) y reportes diarios de cámara."
+                        imagenPath="/src/assets/bll2.webp"
                     />
 
-                    <!-- Tarjeta 2: Publicidad -->
                     <CardProyecto 
-                        categoria="Publicidad"
-                        titulo="Campaña Comercial de Verano"
-                        cliente="Agencia Audiovisual / Marca Internacional"
-                        camaras="Sony Venice 2 / Phantom Flex 4K"
+                        categoria="Video Clip"
+                        titulo="Francisca Valenzuela - Extraño"
+                        cliente="Camila Grandi"
+                        camaras="Alexas Mini LF"
                         flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación a ProRes proxy para edición inmediata."
+                        imagenPath="/src/assets/fvExtrano1.webp"
                     />
 
-                    <!-- Tarjeta 3: Concierto Masivo -->
+
                     <CardProyecto 
                         categoria="Multicam Live Shows"
-                        titulo="Marin Garrix & Ed Sheeran Movitar Arena"
-                        cliente="Productora de Grandes Espectáculos"
-                        camaras="15x Sony FX3 / FX6 / FPV Drones"
-                        flujo="Ingesta masiva, organización Materia multicamra y organizacion a diferentes proyectos."
+                        titulo="Fabrizio Copano - Movistar Arena"
+                        cliente="Prime Video"
+                        camaras="8x Sony FX3 / FX6"
+                        flujo="Ingesta masiva, organizacion Materia multicamaras."
+                        imagenPath="/src/assets/copano2.webp" 
                     />
+
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="Purina One True Instinct"
+                        cliente="afg& / Chepox Producciones"
+                        camaras="Alexa Mini LF"
+                        flujo="Ingesta en set, verificación MD5/XXHash, control de Look (LUTs) y reportes diarios de cámara."
+                        imagenPath="/src/assets/Purina3.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Video Clip"
+                        titulo="Francisca Valenzuela - Rompe Corazones"
+                        cliente="Camila Grandi"
+                        camaras="Alexas Mini LF"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación a ProRes proxy para edición inmediata."
+                        imagenPath="/src/assets/fvRompe.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="Santa isabel - I love Ofertas"
+                        cliente="The Maestros"
+                        camaras="Alexas Mini LF"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación y respasldo cloud."
+                        imagenPath="/src/assets/tmSanta.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Cine"
+                        titulo="Humedal"
+                        cliente="indiFilms"
+                        camaras="Alexas Mini LF"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación, gestion color y respasldo cloud."
+                        imagenPath="/src/assets/humedal.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Prodcutor Tecnico - Video Clip"
+                        titulo="Mon Laferte - Otra noche de llorar"
+                        cliente="Mon Laferte / Camila Grandi"
+                        camaras="16 mm Films"
+                        flujo="Gestion Material tecnico de Luces Y Cámara."
+                        imagenPath="/src/assets/monOtra.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="DIT / Prodcutor Tecnico - Video Clip"
+                        titulo="Paloma Mami - Copy+Paste"
+                        cliente="Mon Laferte / Camila Grandi"
+                        camaras="Sony Burano / Sony FX3 / Dron DJI Inspire 2"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación, gestion color y respasldo cloud."
+                        imagenPath="/src/assets/Palomami.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="Dell - Little Things "
+                        cliente="Jacaranda"
+                        camaras="Alexa Mini LF"
+                        flujo="Productor Tecnico / Proxi lab."
+                        imagenPath="/src/assets/dell.webp"
+                    />
+
+
                 </div>
             </section>
 
-            <!-- 4. SECCIÓN CONTACTO (Preparada con estilos de botón técnico) -->
             <section id="contacto" class="py-24 px-8 md:px-24 max-w-5xl mx-auto text-center md:text-left">
                 <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 text-zinc-100">
                     ¿Tienes un rodaje o show en vivo en camino?
@@ -126,7 +204,6 @@ import '../styles/global.css';
         
         </main>
 
-        <!-- Pie de página integrado -->
         <footer class="border-t border-zinc-900/40 py-8 text-center text-xs text-zinc-600 font-mono">
             <p>&copy; 2026 FELO_RF By Red Flowers Soluciones Audiovisuales. Todos los derechos reservados.</p>
         </footer>
