@@ -1,0 +1,27 @@
+---
+// 1. FRONTMATTER: Definimos las propiedades (Props) que recibirá el componente
+const { titulo, categoria, cliente, camaras, flujo } = Astro.props;
+
+---
+
+<!-- 2. ESTRUCTURA HTML: La maqueta semántica de la tarjeta -->
+<article class="portafolio-card">
+    <div class="card-content">
+
+    <!-- Categoría técnica (Cine, Publicidad, Multicam) -->
+    <span class="project-category">{categoria}</span>
+
+    <!-- Titulo del Proyecto -->
+    <h3 class="project-title">{titulo}</h3>
+
+    <!--Detalles tecnicos del proyecto -->
+    <ul class="project-details">
+        <li><strong>Cliente/Prductora:</strong> {cliente}</li>
+        <li><strong>Cámaras:</strong> {camaras}</li>
+        <li><strong>Flujo de Trabajo:</strong> {flujo}</li>
+    </ul>
+    <!-- Enlace interno para el futuro hacer una página para proyectos -->
+    <a href="#" class="btn-project-view">Ver detalles técnicos</a>
+
+    </div>
+</article>
