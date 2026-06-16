@@ -65,3 +65,19 @@
   80% { transform: skew(1.5deg) }
   100% { transform: skew(0deg) }
 }
+
+/* Glowing Border Animation */
+@keyframes border-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.2), inset 0 0 5px rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6), inset 0 0 10px rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.8);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow 2.5s ease-in-out infinite;
+}
