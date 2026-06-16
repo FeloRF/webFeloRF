@@ -1,0 +1,188 @@
+---
+import CardProyecto from '../components/CardProyecto.astro';
+import '../styles/global.css';
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>FELO_RF | Trabajos Recientes & Reel</title>
+    </head>
+    
+    <body class="bg-[#0c0c0e] text-zinc-100 antialiased selection:bg-amber-500">
+        <!-- Header/Navigation to go back -->
+        <header class="py-6 px-8 md:px-24 max-w-5xl mx-auto flex justify-between items-center border-b border-zinc-900/40">
+            <a href="/" class="text-lg font-bold tracking-wider hover:text-amber-500 transition-colors">FELO_RF</a>
+            <a href="/" class="font-mono text-xs uppercase tracking-widest hover:text-amber-500 transition-colors">← Volver al Inicio</a>
+        </header>
+
+        <main>
+            <section id="portfolio" class="py-16 px-8 md:px-24 max-w-5xl mx-auto">
+                <h1 class="text-xs uppercase tracking-[0.3em] text-zinc-500 font-mono mb-4">
+                    // Trabajos Recientes
+                </h1>
+                <p class="text-zinc-400 font-light mb-12">
+                    Explora nuestros proyectos de Cine, Publicidad, Video Clips y Conciertos en Vivo.
+                </p>
+
+                <!-- Showreel Video Placeholder (DIT Monitor / Viewfinder Style) -->
+                <div class="relative w-full aspect-video rounded-sm overflow-hidden border border-zinc-800 bg-zinc-950/80 mb-20 group/reel cursor-pointer shadow-2xl">
+                    <!-- Viewfinder Grid & Overlays (DIT/Cinematic style) -->
+                    <div class="absolute inset-0 pointer-events-none p-4 flex flex-col justify-between font-mono text-[9px] md:text-xs text-zinc-500 z-10">
+                        <!-- Top row: REC, TC, Frame Rate -->
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                                <span class="tracking-widest font-semibold text-zinc-300">REC</span>
+                            </div>
+                            <div class="tracking-widest font-semibold text-zinc-400">TC 00:01:24:12</div>
+                            <div class="tracking-widest">23.976 FPS</div>
+                        </div>
+                        <!-- Center Crosshair -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                            <div class="w-8 h-px bg-white"></div>
+                            <div class="h-8 w-px bg-white absolute"></div>
+                        </div>
+                        <!-- Bottom row: Resolution, Reel name, status -->
+                        <div class="flex justify-between items-center w-full">
+                            <div class="tracking-wider">ARRIRAW // 4.6K</div>
+                            <div class="tracking-wider text-zinc-400">FELO_RF_REEL_2026.MOV</div>
+                            <div class="tracking-wider">100% OK</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Inner Container with subtle glow and scanline effect -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 flex flex-col items-center justify-center">
+                        <!-- Play Button Overlay -->
+                        <div class="relative z-20 flex flex-col items-center gap-4 transition-transform duration-500 group-hover/reel:scale-105">
+                            <div class="w-16 h-16 rounded-full border border-amber-500/30 bg-amber-500/10 flex items-center justify-center text-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.15)] group-hover/reel:bg-amber-500 group-hover/reel:text-black group-hover/reel:border-amber-500 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 translate-x-[2px]">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs uppercase tracking-[0.25em] font-mono text-zinc-400 group-hover/reel:text-amber-500 transition-colors duration-300">PROYECTAR SHOWREEL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="VW-Tiguan"
+                        cliente="The Colors Films"
+                        camaras="Alexa Mini LF / Dron FPV Cinewhoop / Dron DJI Inspire 2 / Sony FX3"
+                        flujo="Ingesta masiva, organizacion Materia multicamra y Gestion LUTs."
+                        imagenPath="/src/assets/tigu.webp" 
+                    />
+
+                    <CardProyecto 
+                        categoria="Multicam Live Shows"
+                        titulo="Marin Garrix & Ed Sheeran Movistar Arena"
+                        cliente="Street Machine"
+                        camaras="15x Sony FX3 / FX6"
+                        flujo="Ingesta masiva, organizacion Materia multicamra y organizacion a diferentes proyectos."
+                        imagenPath="/src/assets/mg1.webp" 
+                    />
+
+                    <CardProyecto 
+                        categoria="Cine"
+                        titulo="Bajo la lluvia"
+                        cliente="Endora Films / Distribuidora Global"
+                        camaras="RED V-Raptor s35"
+                        flujo="Ingesta en set, verificación MD5/XXHash, control de Look (LUTs) y reportes diarios de cámara."
+                        imagenPath="/src/assets/bll2.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Video Clip"
+                        titulo="Francisca Valenzuela - Extraño"
+                        cliente="Camila Grandi"
+                        camaras="Alexas Mini LF"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación a ProRes proxy para edición inmediata."
+                        imagenPath="/src/assets/fvExtrano1.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Multicam Live Shows"
+                        titulo="Fabrizio Copano - Movistar Arena"
+                        cliente="Prime Video"
+                        camaras="8x Sony FX3 / FX6"
+                        flujo="Ingesta masiva, organizacion Materia multicamaras."
+                        imagenPath="/src/assets/copano2.webp" 
+                    />
+
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="Purina One True Instinct"
+                        cliente="afg& / Chepox Producciones"
+                        camaras="Alexa Mini LF"
+                        flujo="Ingesta en set, verificación MD5/XXHash, control de Look (LUTs) y reportes diarios de cámara."
+                        imagenPath="/src/assets/Purina3.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Video Clip"
+                        titulo="Francisca Valenzuela - Rompe Corazones"
+                        cliente="Camila Grandi"
+                        camaras="Alexas Mini LF"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación a ProRes proxy para edición inmediata."
+                        imagenPath="/src/assets/fvRompe.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="Santa isabel - I love Ofertas"
+                        cliente="The Maestros"
+                        camaras="Alexas Mini LF"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación y respasldo cloud."
+                        imagenPath="/src/assets/tmSanta.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Cine"
+                        titulo="Humedal"
+                        cliente="indiFilms"
+                        camaras="Alexas Mini LF"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación, gestion color y respasldo cloud."
+                        imagenPath="/src/assets/humedal.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Prodcutor Tecnico - Video Clip"
+                        titulo="Mon Laferte - Otra noche de llorar"
+                        cliente="Mon Laferte / Camila Grandi"
+                        camaras="16 mm Films"
+                        flujo="Gestion Material tecnico de Luces Y Cámara."
+                        imagenPath="/src/assets/monOtra.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="DIT / Prodcutor Tecnico - Video Clip"
+                        titulo="Paloma Mami - Copy+Paste"
+                        cliente="Mon Laferte / Camila Grandi"
+                        camaras="Sony Burano / Sony FX3 / Dron DJI Inspire 2"
+                        flujo="Respaldo redundante doble en unidades NVMe SSD, transcodificación, gestion color y respasldo cloud."
+                        imagenPath="/src/assets/Palomami.webp"
+                    />
+
+                    <CardProyecto 
+                        categoria="Publicidad"
+                        titulo="Dell - Little Things "
+                        cliente="Jacaranda"
+                        camaras="Alexa Mini LF"
+                        flujo="Productor Tecnico / Proxi lab."
+                        imagenPath="/src/assets/dell.webp"
+                    />
+                </div>
+            </section>
+        </main>
+
+        <footer class="border-t border-zinc-900/40 py-8 text-center text-xs text-zinc-600 font-mono">
+            <p>&copy; 2026 FELO_RF By Red Flowers Soluciones Audiovisuales. Todos los derechos reservados.</p>
+        </footer>
+    </body>
+</html>
