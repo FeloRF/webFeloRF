@@ -223,13 +223,37 @@ import "../styles/global.css";
 
                 <!-- Showreel Video Player (DIT Monitor / Viewfinder Style) -->
                 <div
+                    id="showreel-monitor"
                     class="relative w-full aspect-video rounded-sm overflow-hidden border border-zinc-800 bg-zinc-950/80 mb-12 group/reel cursor-pointer shadow-2xl"
                 >
-
+                    <!-- Viewfinder Grid & Overlays (DIT/Cinematic style) -->
+                    <div id="viewfinder-overlays" class="absolute inset-0 pointer-events-none p-4 flex flex-col justify-between font-mono text-[9px] md:text-xs text-zinc-500 z-10 transition-opacity duration-500">
+                        <!-- Top row: REC, TC, Frame Rate -->
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                                <span class="tracking-widest font-semibold text-zinc-300">REC</span>
+                            </div>
+                            <div class="tracking-widest font-semibold text-zinc-400">TC 00:01:24:12</div>
+                            <div class="tracking-widest">23.976 FPS</div>
+                        </div>
+                        <!-- Center Crosshair -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                            <div class="w-8 h-px bg-white"></div>
+                            <div class="h-8 w-px bg-white absolute"></div>
+                        </div>
+                        <!-- Bottom row: Resolution, Reel name, status -->
+                        <div class="flex justify-between items-center w-full">
+                            <div class="tracking-wider">ARRIRAW // 4.6K</div>
+                            <div class="tracking-wider text-zinc-400">FELO_RF_REEL_2026.MOV</div>
+                            <div class="tracking-wider">100% OK</div>
+                        </div>
+                    </div>
 
                     <!-- Inner Container with subtle glow and scanline effect -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 flex flex-col items-center justify-center"
+                        id="play-overlay"
+                        class="absolute inset-0 bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-950 flex flex-col items-center justify-center transition-opacity duration-500 z-0"
                     >
                         <!-- Play Button Overlay -->
                         <div
@@ -253,6 +277,9 @@ import "../styles/global.css";
                             >
                         </div>
                     </div>
+
+                    <!-- Video Container for iframe -->
+                    <div id="video-container" class="absolute inset-0 w-full h-full hidden"></div>
                 </div>
 
                 <a
@@ -293,5 +320,36 @@ import "../styles/global.css";
                 Todos los derechos reservados.
             </p>
         </footer>
+        <script>
+            const monitor = document.getElementById('showreel-monitor');
+            const playOverlay = document.getElementById('play-overlay');
+            const overlays = document.getElementById('viewfinder-overlays');
+            const videoContainer = document.getElementById('video-container');
+
+            if (monitor && playOverlay && overlays && videoContainer) {
+                monitor.addEventListener('click', () => {
+                    // Hide overlays with CSS transition
+                    playOverlay.classList.add('opacity-0');
+                    overlays.classList.add('opacity-0');
+                    
+                    // Wait for fade out transition (500ms), then load iframe
+                    setTimeout(() => {
+                        playOverlay.classList.add('hidden');
+                        overlays.classList.add('hidden');
+                        videoContainer.classList.remove('hidden');
+                        videoContainer.innerHTML = `
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/vXviav24ZEI?autoplay=1&modestbranding=1&rel=0" 
+                                title="FELO_RF Showreel" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                            ></iframe>
+                        `;
+                    }, 500);
+                }, { once: true });
+            }
+        </script>
     </body>
 </html>
